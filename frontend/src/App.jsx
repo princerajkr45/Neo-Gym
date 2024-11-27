@@ -5,6 +5,8 @@ import Customer from "./components/customer/Customer";
 import LoginPage from "./components/Auth/LoginPage";
 import SignUpPage from "./components/Auth/SignUpPage";
 import { ToastContainer } from "react-toastify";
+import ContactUs from "./components/Home/ContactUs";
+import AboutPage from "./components/Home/AboutPage";
 
 // Import other components if needed, e.g., Home, OtherComponent
 
@@ -21,6 +23,8 @@ function App() {
         <Route path="/Customer/*" element={<Customer />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/Signup" element={<SignUpPage />} />
+        <Route path="/contactUs" element={<ContactUs />} />
+        <Route path="/AboutPage" element={<AboutPage/>} />
       </Routes>
     </Router>
   );

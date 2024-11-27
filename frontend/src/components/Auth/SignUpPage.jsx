@@ -165,7 +165,8 @@ const SignUpPage = () => {
           {step === 2 && (
             <>
               <div className="mb-6">
-                <label className="block text-lg font-medium text-[#1E3A8A] mb-2">Street Address</label>
+                <h1 className="font-bold mb-2 text-lg">Address</h1>
+                <label className="block text-lg font-medium text-[#1E3A8A] mb-2">Street </label>
                 <input
                   type="text"
                   value={address.street}
