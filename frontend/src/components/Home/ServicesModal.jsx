@@ -6,7 +6,7 @@ import membership from '../../assets/membership.png';
 function ServicesModal({ toggleModal }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white w-full sm:w-10/12 md:w-8/12 lg:w-7/12 xl:w-6/12 max-h-[90vh] overflow-y-auto rounded-lg shadow-lg p-8">
+      <div className="bg-white w-full sm:w-10/12  max-h-[90vh] overflow-y-auto rounded-lg shadow-lg p-8">
         <div className="flex justify-between items-center mb-8">
           <h3 className="text-4xl font-extrabold text-gray-900">Our Services</h3>
           <button 
