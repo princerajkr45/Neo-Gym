@@ -13,6 +13,7 @@ NeoGym provides two primary sections:
 - **Frontend**: React.js
 - **Styling**: Tailwind CSS
 - **Routing**: React Router DOM
+- **Backend**: Express MongoDB
 
 ## ✨ Features
 
