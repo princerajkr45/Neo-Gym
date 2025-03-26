@@ -9,6 +9,7 @@ import { TfiAnnouncement } from "react-icons/tfi";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
+import FRONTEND_URL from "../../../../frontend/src/constant/const";
 function DashBorad() {
   const [member, setMember] = useState("");
   const [announcement, setAnnouncements] = useState("");
@@ -19,9 +20,7 @@ function DashBorad() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:7002/api/member/users"
-        );
+        const response = await axios.get(`${FRONTEND_URL}/api/member/users`);
         setMember(response.data.length);
       } catch (error) {
         console.log(error.message || "An error occurred while fetching data.");
@@ -30,7 +29,7 @@ function DashBorad() {
 
     const fetchAnnouncements = async () => {
       try {
-        const res = await axios.get("http://localhost:7002/api/announcement");
+        const res = await axios.get(`${FRONTEND_URL}/api/announcements`);
         setAnnouncements(res.data.data);
       } catch (error) {
         console.log(error.message || "An error occurred while fetching data.");
@@ -39,7 +38,7 @@ function DashBorad() {
 
     const fetchTasks = async () => {
       try {
-        const response = await axios.get("http://localhost:7002/api/task");
+        const response = await axios.get(`${FRONTEND_URL}/api/task`);
         setTasks(response.data);
       } catch (error) {
         console.error("Error fetching tasks:", error);
@@ -49,7 +48,7 @@ function DashBorad() {
 
     const fetchContactForms = async () => {
       try {
-        const response = await fetch("http://localhost:7002/api/contact");
+        const response = await fetch(`${FRONTEND_URL}/api/contact`);
 
         if (response.ok) {
           const result = await response.json();
@@ -79,9 +78,7 @@ function DashBorad() {
   // Handle task removal
   const handleRemoveTask = async (taskId) => {
     try {
-      const response = await axios.delete(
-        `http://localhost:7002/api/task/${taskId}`
-      ); // Replace with your delete endpoint
+      const response = await axios.delete(`${FRONTEND_URL}/api/task/${taskId}`); // Replace with your delete endpoint
       setTasks(tasks.filter((task) => task._id !== taskId)); // Remove task from state
       setStatusMessage("Task removed successfully!");
     } catch (error) {

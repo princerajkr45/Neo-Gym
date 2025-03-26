@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import FRONTEND_URL from "../../../../../frontend/src/constant/const";
 
 const MemberPaymentTable = () => {
   // State variables
@@ -13,7 +14,7 @@ const MemberPaymentTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:7002/api/payment/");
+        const res = await axios.get(`${FRONTEND_URL}/api/payment/`);
         setPaymentData(res.data.payments || []); // Assuming the API sends an object with payments
         setLoading(false);
       } catch (error) {
@@ -36,7 +37,7 @@ const MemberPaymentTable = () => {
   const toggleReminder = async (memberId, value) => {
     try {
       // Send the update request to the backend API
-      const response = await axios.put(`http://localhost:7002/api/member/users/${memberId}/reminder`, {
+      const response = await axios.put(`${FRONTEND_URL}/api/member/users/${memberId}/reminder`, {
         reminder: value,
       });
       setReminders((prevReminders) => ({

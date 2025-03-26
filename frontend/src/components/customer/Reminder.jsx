@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import FRONTEND_URL from "../../constant/const";
 
 export default function Reminder() {
   const [reminder, setReminder] = useState(null); // State to hold the reminder status
@@ -10,7 +11,7 @@ export default function Reminder() {
   // API function to fetch reminder status
   const fetchReminder = async () => {
     try {
-      const response = await axios.get(`http://localhost:7002/api/member/users/${userId}`);
+      const response = await axios.get(`${FRONTEND_URL}/api/member/users/${userId}`);
       setReminder(response.data.reminder);
     } catch (err) {
       setError(err.response?.data?.message || "Failed to fetch reminder data.");
@@ -22,7 +23,7 @@ export default function Reminder() {
   // API function to dismiss the reminder
   const dismissReminder = async () => {
     try {
-      const response = await axios.put(`http://localhost:7002/api/member/users/${userId}/reminder`, {
+      const response = await axios.put(`${FRONTEND_URL}/api/member/users/${userId}/reminder`, {
         reminder: false,
       });
       setReminder(response.data.reminder); // Update the reminder state

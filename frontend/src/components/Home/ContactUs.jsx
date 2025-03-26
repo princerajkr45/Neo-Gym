@@ -3,6 +3,7 @@ import { MdEmail } from "react-icons/md";
 import { MdCall } from "react-icons/md";
 import { GrSupport } from "react-icons/gr";
 import Navbar from "./Navbar";
+import FRONTEND_URL from "../../constant/const";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -58,7 +59,7 @@ export default function ContactUs() {
       setSubmitError(null); // Reset error message
 
       try {
-        const response = await fetch("http://localhost:7002/api/contact", {
+        const response = await fetch(`${FRONTEND_URL}/api/contact`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
